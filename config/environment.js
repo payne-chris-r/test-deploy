@@ -2,11 +2,12 @@
 
 module.exports = function (environment) {
   'use strict';
-  const ENV = {
+  var ENV = {
     modulePrefix: 'test-deploy',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
+    apiHost: 'http://localhost:3000',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -49,7 +50,9 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
+    ENV.rootURL = '/test-deploy';
     ENV.locationType = 'hash';
+    ENV.apiHost = 'https://murmuring-ocean-51383.herokuapp.com'
   }
 
   return ENV;
